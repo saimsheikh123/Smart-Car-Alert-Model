@@ -1,0 +1,22 @@
+{
+  "model_name": "MIT/ast-finetuned-audioset-10-10-0.4593",
+  "num_classes": 6,
+  "class_names": [
+    "alert_sounds",
+    "collision_sounds",
+    "emergency_sirens",
+    "environmental_sounds",
+    "human_scream",
+    "road_traffic"
+  ],
+  "train_samples": 6803,
+  "test_samples": 1226,
+  "test_accuracy": 0.9706362153344209,
+  "hyperparameters": {
+    "batch_size": 8,
+    "learning_rate": 5e-05,
+    "num_epochs": 5,
+    "max_audio_length": 5,
+    "sampling_rate": 16000
+  }
+}

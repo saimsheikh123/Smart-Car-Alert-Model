@@ -1,0 +1,5 @@
+# Additional dependencies for AST (Audio Spectrogram Transformer)
+transformers>=4.35.0
+datasets>=2.14.0
+accelerate>=0.24.0
+evaluate>=0.4.0

@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+c:\aws-env/
+
+# AWS
+aws_config.json
+
+# Model checkpoints and large files
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+*.h5
+*.pkl
+*.pt
+checkpoint-*/
+
+# Datasets (too large for GitHub)
+datasets/
+*.wav
+*.mp3
+*.flac
+
+# Training outputs
+training_log.txt
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+model.tar.gz

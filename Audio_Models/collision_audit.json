@@ -1,0 +1,968 @@
+{
+  "total": 60,
+  "collision_as_collision": 59,
+  "collision_as_other": 1,
+  "override_used": 0,
+  "details": [
+    {
+      "file": "0-7_aug16.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999687671661377
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.6204900020966306e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "0-7_aug3.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999549388885498
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 2.6451527446624823e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "0-7_aug5.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999616146087646
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 2.1547208234551363e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "0-7_aug6.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999532699584961
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 2.8489803298725747e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "1-10.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999886751174927
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 3.892886070389068e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "1-6_aug12.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999656677246094
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 2.4959712391137145e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "1-6_aug17.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.999972939491272
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.9909823095076717e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "1-6_aug5.wav",
+      "pred": "collision_sounds",
+      "confidence": 0.9999,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999397993087769
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 2.977115764224436e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "1-7_aug8.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999818801879883
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.2183630133222323e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "1-7_aug9.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999810457229614
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.1763606380554847e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "1-9_aug1.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999783039093018
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.3209061762609053e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "1-9_aug15.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999662637710571
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.5221429748635273e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "1-9_aug4.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999778270721436
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.4844373254163656e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-0_aug15.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999845027923584
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 6.802266852901084e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-0_aug4.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999772310256958
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.6238422176684253e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-3_aug12.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.999983549118042
+        },
+        {
+          "class": "road_traffic",
+          "confidence": 8.092071766441222e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-3_aug16.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999911785125732
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 4.450786036613863e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-4_aug11.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999866485595703
+        },
+        {
+          "class": "human_scream",
+          "confidence": 5.732188583351672e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-5_aug11.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999827146530151
+        },
+        {
+          "class": "road_traffic",
+          "confidence": 8.537123903806787e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-5_aug14.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999929666519165
+        },
+        {
+          "class": "human_scream",
+          "confidence": 2.5852318685792852e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-5_aug15.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999814033508301
+        },
+        {
+          "class": "road_traffic",
+          "confidence": 9.75973489403259e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-5_aug16.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999938011169434
+        },
+        {
+          "class": "road_traffic",
+          "confidence": 2.8164438390376745e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-5_aug4.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999810457229614
+        },
+        {
+          "class": "road_traffic",
+          "confidence": 9.744925591803622e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-7_aug4.wav",
+      "pred": "collision_sounds",
+      "confidence": 0.9996,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9995984435081482
+        },
+        {
+          "class": "human_scream",
+          "confidence": 0.000240418579778634
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "10-7_aug5.wav",
+      "pred": "collision_sounds",
+      "confidence": 0.9991,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9991114735603333
+        },
+        {
+          "class": "human_scream",
+          "confidence": 0.0006313783815130591
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-0_aug10.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999808073043823
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.2977941878489219e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-0_aug12.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999558925628662
+        },
+        {
+          "class": "road_traffic",
+          "confidence": 2.0262452380848117e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-0_aug16.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999632835388184
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 2.7613461497821845e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-0_aug3.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999808073043823
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.2977941878489219e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-0_aug5.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999758005142212
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.2151032024121378e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-1_aug13.wav",
+      "pred": "collision_sounds",
+      "confidence": 0.9999,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9998996257781982
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 6.152387504698709e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-1_aug4.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999754428863525
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.4081196241022553e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-2_aug12.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999508857727051
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 3.930878301616758e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-2_aug5.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999738931655884
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.91942963283509e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "11-3.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999525547027588
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 3.920196832041256e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "12-0.wav",
+      "pred": "human_scream",
+      "confidence": 0.9992,
+      "top2": [
+        {
+          "class": "human_scream",
+          "confidence": 0.9992228746414185
+        },
+        {
+          "class": "collision_sounds",
+          "confidence": 0.0005339104682207108
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "12-2_aug10.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999945163726807
+        },
+        {
+          "class": "alert_sounds",
+          "confidence": 1.9107981188426493e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "12-2_aug15.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999929666519165
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 2.9935351903986884e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "13-4.wav",
+      "pred": "collision_sounds",
+      "confidence": 0.9886,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9886302947998047
+        },
+        {
+          "class": "human_scream",
+          "confidence": 0.010842477902770042
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "13-5_aug2.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999904632568359
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 5.4009337873139884e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "13-7_aug11.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999828338623047
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.1583215382415801e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "13-7_aug13.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999864101409912
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 8.412328497797716e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "13-7_aug5.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999855756759644
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 9.196308383252472e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "14-0.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999908208847046
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 4.709634595201351e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "14-7.wav",
+      "pred": "collision_sounds",
+      "confidence": 0.9998,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9998083710670471
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 0.0001607439771760255
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-0_aug1.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.999976396560669
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.6123276509460993e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-0_aug10.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999856948852539
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 7.885075319791213e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-0_aug17.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999686479568481
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.54871722770622e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-0_aug3.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999810457229614
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.1014637493644841e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-1.wav",
+      "pred": "collision_sounds",
+      "confidence": 0.9994,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9994139671325684
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 0.0005616180715151131
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-10.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999673366546631
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 2.2263779101194814e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-3_aug7.wav",
+      "pred": "collision_sounds",
+      "confidence": 0.9999,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999265670776367
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 6.112095434218645e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-6_aug17.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.999991774559021
+        },
+        {
+          "class": "alert_sounds",
+          "confidence": 2.303601604580763e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-6_aug8.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999780654907227
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.3689960724150296e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-7.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999901056289673
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 6.0380716604413465e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-7_aug3.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999773502349854
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 1.6579098883084953e-05
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-7_aug4.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999845027923584
+        },
+        {
+          "class": "road_traffic",
+          "confidence": 6.2012240960029885e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-7_aug7.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999901056289673
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 6.0380716604413465e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-7_aug9.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999798536300659
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 9.336524271930102e-06
+        }
+      ],
+      "override": false
+    },
+    {
+      "file": "15-8_aug12.wav",
+      "pred": "collision_sounds",
+      "confidence": 1.0,
+      "top2": [
+        {
+          "class": "collision_sounds",
+          "confidence": 0.9999935626983643
+        },
+        {
+          "class": "emergency_sirens",
+          "confidence": 2.60367642113124e-06
+        }
+      ],
+      "override": false
+    }
+  ]
+}

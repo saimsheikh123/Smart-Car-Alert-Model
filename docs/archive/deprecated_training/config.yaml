@@ -1,0 +1,87 @@
+# Training Configuration for Unified 7-Class AudioCRNN
+
+# Dataset Configuration
+dataset:
+  root_dir: "./dataset"  # Where train/val/test folders live
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  classes:
+    - alert_sounds
+    - car_crash
+    - emergency_sirens
+    - environmental_sounds
+    - glass_breaking
+    - human_scream
+    - road_traffic
+  num_classes: 7
+  sample_rate: 16000
+  duration: 3.0  # seconds; pad/trim audio to this length
+
+# Audio preprocessing
+audio:
+  sr: 16000
+  n_mels: 128
+  n_fft: 2048
+  hop_length: 512
+  n_mfcc: 13
+  mel_spec_len: 128  # fixed mel-spec time dimension
+
+# Data augmentation (applied only to training set)
+augmentation:
+  enabled: true
+  apply_noise: true
+  noise_prob: 0.3
+  noise_factor: 0.005
+  apply_stretch: true
+  stretch_prob: 0.3
+  stretch_factor: [0.8, 1.2]
+  apply_shift: true
+  shift_prob: 0.3
+  apply_pitch: false  # requires librosa.effects.pitch_shift (slower)
+  pitch_prob: 0.2
+  pitch_steps: 2
+
+# Model Architecture
+model:
+  name: "AudioCRNN_7class"
+  architecture: "crnn"  # 'crnn' or 'pretrained_pann' (for future extension)
+  num_classes: 7
+  dropout: 0.5
+  conv_channels: [16, 32, 64]
+  rnn_hidden: 128
+  rnn_layers: 1
+
+# Training Hyperparameters
+training:
+  batch_size: 16
+  num_epochs: 50
+  learning_rate: 0.001
+  optimizer: "adam"  # adam, sgd
+  loss_function: "weighted_crossentropy"  # weighted for class imbalance
+  class_weights: "balanced"  # 'balanced' or list: [w0, w1, ..., w6]
+  early_stopping_patience: 10
+  early_stopping_metric: "val_loss"  # 'val_loss' or 'val_accuracy'
+  lr_scheduler: "cosine"  # 'cosine', 'step', 'exponential', or 'none'
+  
+# Device
+device: "auto"  # 'auto', 'cpu', 'cuda', 'mps' (Apple)
+
+# Paths and Checkpoints
+paths:
+  output_dir: "./checkpoints"
+  checkpoint_save_freq: 5  # save every N epochs
+  best_checkpoint_name: "best_audiocrnn_7class.pth"
+  final_checkpoint_name: "multi_audio_crnn.pth"  # Deploy this name
+  log_dir: "./logs"
+  metrics_csv: "./logs/training_metrics.csv"
+
+# Validation & Eval
+evaluation:
+  eval_on_test: true
+  save_confusion_matrix: true
+  save_metrics_json: true
+  per_class_metrics: true
+
+# Reproducibility
+seed: 42

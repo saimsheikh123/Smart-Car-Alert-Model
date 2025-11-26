@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alert Detection</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;background:#f3f4f6;min-height:100vh;padding:20px;color:#111}
+    .container{max-width:1000px;margin:0 auto}
+    header{text-align:center;color:#111;margin-bottom:28px}
+    .main-card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.08);border:1px solid #e5e7eb;margin-bottom:16px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .upload-area{border:3px dashed #2a5298;border-radius:10px;padding:32px 18px;text-align:center;cursor:pointer;background:#f8fafc}
+    .upload-area.dragover{border-color:#16335a;transform:scale(1.01)}
+    #audioFile{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+    .file-name{margin-top:12px;padding:10px;border-radius:8px;background:#e8f5e9;border-left:4px solid #4caf50;color:#2e7d32;text-align:center;display:none}
+    .file-name.show{display:block}
+    .action-buttons{display:flex;gap:12px;margin-top:14px;justify-content:center}
+    button{padding:10px 14px;border-radius:8px;border:0;font-weight:600;cursor:pointer}
+    .btn-play{background:#2196f3;color:#fff;display:none}
+    .btn-remove{background:#f44336;color:#fff;display:none}
+    .btn-classify{background:linear-gradient(135deg,#2a5298,#1e3c72);color:#fff;width:100%;padding:12px}
+    .btn-browse{margin-top:10px;background:#2a5298;color:#fff;border:0;border-radius:8px;padding:8px 12px;font-weight:600;cursor:pointer}
+    .audio-player{margin-top:12px;display:none;background:#f5f5f5;padding:10px;border-radius:8px}
+    .audio-player.show{display:block}
+    .results-section{display:none;margin-top:18px}
+    .results-section.show{display:block}
+    .alert-result{padding:16px;border-radius:10px;text-align:center;border:2px solid #ff9800;background:linear-gradient(135deg,#fff9e6,#ffe8cc)}
+    .alert-result.high{background:linear-gradient(135deg,#ffebee,#ffcdd2);border-color:#f44336}
+    .alert-result.medium{background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-color:#ff9800}
+    .alert-result.low{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-color:#4caf50}
+    .alert-icon{font-size:2.6rem;margin-bottom:8px}
+    .alert-title{font-weight:700;margin-bottom:4px}
+    .confidence-display{font-weight:700;margin-top:8px}
+    .confidence-bar{display:flex;gap:10px;align-items:center;margin-top:8px}
+    .confidence-bar-fill{flex:1;height:10px;background:#e5e7eb;border-radius:6px;overflow:hidden}
+    .confidence-bar-value{height:100%;background:linear-gradient(90deg,#2a5298,#1e3c72);width:0;transition:width .4s}
+    .confidence-percent{min-width:48px;text-align:right;font-weight:700}
+    .model-details{margin-top:12px;padding:12px;border-radius:8px;border:1px solid #eee}
+    .model-details-header{display:flex;justify-content:space-between;cursor:pointer}
+    .model-details-content{display:none;margin-top:10px}
+    .model-details-content.show{display:block}
+    .feedback-section{margin-top:12px;padding:12px;border-radius:8px;border:1px solid #e5e7eb;background:#f9fafb}
+    .feedback-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .btn-feedback{padding:10px;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer;font-weight:600}
+    .btn-feedback.correct.active{background:#4caf50;color:#fff}
+    .btn-feedback.incorrect.active{background:#f44336;color:#fff}
+    .feedback-options{display:none;margin-top:10px}
+    .feedback-options.show{display:block}
+    .feedback-status{display:none;margin-top:10px;padding:8px;border-radius:6px;text-align:center;font-weight:600}
+    .feedback-status.show{display:block}
+    .feedback-status.success{background:#c8e6c9;color:#2e7d32}
+    .feedback-status.error{background:#ffcdd2;color:#c62828}
+    .status{margin-top:12px}
+    /* History */
+    .history-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+    .history-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .history-list{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+    .history-item{border:1px solid #eee;border-radius:10px;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .history-left{display:flex;align-items:center;gap:10px}
+    .tag{padding:3px 8px;border-radius:12px;font-size:12px;font-weight:700}
+    .tag.emergency{background:#ffebee;color:#b71c1c}
+    .tag.safety{background:#fff3e0;color:#e65100}
+    .tag.info{background:#e8f5e9;color:#1b5e20}
+    .pill{padding:3px 8px;border-radius:12px;background:#eef2ff;color:#1e3a8a;font-size:12px}
+    .details{display:none;margin-top:8px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px;padding:8px}
+    .view-btn{padding:8px 10px;border-radius:8px;border:1px solid #c7d2fe;background:#eef2ff;color:#1e3a8a;cursor:pointer}
+    .clear-btn{padding:8px 10px;border-radius:8px;border:1px solid #fca5a5;background:#fee2e2;color:#991b1b;cursor:pointer}
+    @media(max-width:768px){.action-buttons{flex-direction:column}}
+    /* Layout: make cards full width stacked */
+    .grid{display:block}
+    .history-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.08);border:1px solid #e5e7eb}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚗 Alert Detection</h1>
+    </header>
+
+    <div class="grid">
+    <div class="main-card">
+      <div class="upload-section">
+        <div id="uploadArea" class="upload-area" tabindex="0" role="button" aria-label="Upload audio by clicking or dropping a file">
+          <div class="upload-icon">📁</div>
+          <p><strong>Click to upload or drag and drop</strong></p>
+          <p style="color:#666;font-size:0.95rem">MP3, WAV, or other audio formats (Max 10MB)</p>
+          <button id="browseBtn" type="button" class="btn-browse">Browse Files</button>
+        </div>
+        <input id="audioFile" type="file" accept="audio/*" />
+        <div id="fileName" class="file-name"></div>
+      </div>
+
+      <div id="audioPlayer" class="audio-player"><audio id="audioElement" controls></audio></div>
+
+      <div class="action-buttons">
+        <button id="playBtn" class="btn-play">▶️ Play Audio</button>
+        <button id="removeBtn" class="btn-remove">✕ Remove Audio</button>
+        <button id="classifyBtn" class="btn-classify" disabled>Analyze Audio</button>
+      </div>
+
+      <div id="statusContainer" class="status"></div>
+
+      <div id="resultsSection" class="results-section">
+        <div id="alertResult" class="alert-result">
+          <div id="alertIcon" class="alert-icon">🔔</div>
+          <div id="alertTitle" class="alert-title">Analyzing...</div>
+          <div id="alertPriority" style="margin-top:6px;color:#444"></div>
+          <div id="confidenceDisplay" class="confidence-display">--</div>
+          <div class="confidence-bar"><div class="confidence-bar-fill"><div id="confidenceBarValue" class="confidence-bar-value"></div></div><div id="confidencePercent" class="confidence-percent">0%</div></div>
+          <div id="alertDescription" style="margin-top:8px;color:#555"></div>
+        </div>
+
+        <div class="model-details">
+          <div class="model-details-header" onclick="toggleDetails()"><strong>📊 Technical Details</strong><span id="detailsIcon">▼</span></div>
+          <div id="detailsContent" class="model-details-content">
+            <div style="margin-top:8px"><strong>Model:</strong> Audio Spectrogram Transformer (AST)</div>
+            <div><strong>Classes:</strong> Emergency Sirens, Collision/Impact, Alert Sounds, Human Scream, Environmental Sounds, Road Traffic</div>
+            <div><strong>Dataset:</strong> Custom dataset with ESC-50 integration</div>
+            <div><strong>Prediction:</strong> <span id="modelConsensus">--</span></div>
+          </div>
+        </div>
+
+        <div class="feedback-section">
+          <div style="font-weight:700;margin-bottom:8px">❓ Did we get this right?</div>
+          <div class="feedback-buttons">
+            <button id="btnCorrect" class="btn-feedback correct">✓ Correct</button>
+            <button id="btnIncorrect" class="btn-feedback incorrect">✗ Incorrect</button>
+          </div>
+          <div id="feedbackStatus" class="feedback-status"></div>
+        </div>
+
+          <div id="feedbackStatus" class="feedback-status"></div>
+        </div>
+
+      </div>
+    </div>
+    <aside class="history-card">
+      <div class="history-header">
+        <h3>My Alert History</h3>
+        <button id="clearHistoryBtn" class="clear-btn" title="Clear history">Clear</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </aside>
+  </div>
+
+  <script>
+    // state
+    let selectedFile = null;
+    let currentPrediction = null;
+    let feedbackCorrectState = null;
+    const HISTORY_KEY = 'alertHistoryV2';
+
+    // dom
+    const uploadArea = document.getElementById('uploadArea');
+    const audioFile = document.getElementById('audioFile');
+    const browseBtn = document.getElementById('browseBtn');
+    const fileName = document.getElementById('fileName');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const audioElement = document.getElementById('audioElement');
+    const playBtn = document.getElementById('playBtn');
+    const removeBtn = document.getElementById('removeBtn');
+    const classifyBtn = document.getElementById('classifyBtn');
+    const statusContainer = document.getElementById('statusContainer');
+    const resultsSection = document.getElementById('resultsSection');
+    const feedbackOptions = document.getElementById('feedbackOptions');
+    const feedbackStatus = document.getElementById('feedbackStatus');
+    const btnCorrect = document.getElementById('btnCorrect');
+    const btnIncorrect = document.getElementById('btnIncorrect');
+    const feedbackSubmit = document.getElementById('feedbackSubmit');
+
+    // upload handlers
+    uploadArea.addEventListener('click', ()=> audioFile.click());
+    uploadArea.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); audioFile.click(); }});
+    uploadArea.addEventListener('dragover', (e)=>{ e.preventDefault(); uploadArea.classList.add('dragover'); });
+    uploadArea.addEventListener('dragleave', ()=> uploadArea.classList.remove('dragover'));
+    uploadArea.addEventListener('drop', (e)=>{ e.preventDefault(); uploadArea.classList.remove('dragover'); handleFileSelect(e.dataTransfer.files[0]); });
+    audioFile.addEventListener('change', (e)=>{ if(e.target.files.length>0) handleFileSelect(e.target.files[0]); });
+    if (browseBtn) browseBtn.addEventListener('click', (e)=>{ e.stopPropagation(); audioFile.click(); });
+
+    function handleFileSelect(file){
+      const audioExt = /\.(wav|mp3|flac|m4a|aac|ogg|wma)$/i;
+      const hasMime = file && file.type && file.type.startsWith && file.type.startsWith('audio/');
+      const hasExt = file && file.name && audioExt.test(file.name);
+      if(!file || !(hasMime || hasExt)){ showStatus('Please select a valid audio file (wav, mp3, flac, m4a, aac, ogg)','error'); return; }
+      selectedFile = file;
+      fileName.textContent = `✓ ${file.name}`;
+      fileName.classList.add('show');
+      const reader = new FileReader();
+      reader.onload = (e)=>{ audioElement.src = e.target.result; audioPlayer.classList.add('show'); };
+      reader.readAsDataURL(file);
+      classifyBtn.disabled = false; playBtn.style.display = 'inline-block'; removeBtn.style.display = 'inline-block'; resultsSection.classList.remove('show'); clearResults();
+      console.log('Selected file:', {name:file.name, type:file.type, size:file.size});
+    }
+
+    playBtn.addEventListener('click', ()=> audioElement.play());
+    removeBtn.addEventListener('click', ()=>{ selectedFile=null; audioFile.value=''; fileName.classList.remove('show'); audioPlayer.classList.remove('show'); playBtn.style.display='none'; removeBtn.style.display='none'; classifyBtn.disabled=true; resultsSection.classList.remove('show'); clearResults(); statusContainer.innerHTML=''; });
+
+    classifyBtn.addEventListener('click', classifyAudio);
+    async function classifyAudio(){
+      if(!selectedFile){ showStatus('Please select an audio file first','error'); return; }
+      showStatus('🔄 Analyzing audio... This may take a few seconds.','loading'); classifyBtn.disabled=true;
+      const form = new FormData(); form.append('file', selectedFile); form.append('use_crnn','true'); form.append('use_siren','true'); form.append('use_dqn','true');
+      try{
+        const res = await fetch('/classify',{method:'POST', body: form});
+        if(!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json(); currentPrediction = data; displayResults(data); showStatus('✓ Analysis complete!','success');
+      }catch(err){ console.error(err); showStatus(`Error: ${err.message}`,'error'); } finally{ classifyBtn.disabled=false; }
+    }
+
+    function displayResults(data){
+      const ensemble = data.ensemble||{}; const confidence = ensemble.confidence||0; const primary = ensemble.primary_class||'Unknown';
+      const mapping = {
+        'alert_sounds':{title:'Alert Detected',priority:'Caution',desc:'Alert sound detected',icon:'🔔'},
+        'collision_sounds':{title:'Collision/Impact',priority:'Warning',desc:'Collision or impact detected',icon:'💥'},
+        'emergency_sirens':{title:'Emergency Siren',priority:'Critical',desc:'Emergency siren detected',icon:'🚨'},
+        'environmental_sounds':{title:'Environmental Sound',priority:'Info',desc:'Environmental background',icon:'🌍'},
+        'human_scream':{title:'Human Scream',priority:'Warning',desc:'Human scream detected',icon:'😱'},
+        'road_traffic':{title:'Road Traffic',priority:'Info',desc:'Traffic sound detected',icon:'🚗'}
+      };
+      const res = mapping[primary]||{title:'❓ Sound Detected',priority:'Unknown',desc:'Unknown',icon:'❓'};
+      let level='low'; if(confidence>0.8) level='high'; else if(confidence>0.6) level='medium';
+      const confPercent = Math.round(confidence*100);
+      document.getElementById('alertResult').className = `alert-result ${level}`;
+      document.getElementById('alertIcon').textContent = res.icon;
+      document.getElementById('alertTitle').textContent = res.title;
+      document.getElementById('alertPriority').textContent = `Priority: ${res.priority}`;
+      document.getElementById('alertDescription').textContent = res.desc;
+      document.getElementById('confidenceDisplay').textContent = `${confPercent}%`;
+      document.getElementById('confidencePercent').textContent = `${confPercent}%`;
+      document.getElementById('confidenceBarValue').style.width = `${confPercent}%`;
+      document.getElementById('modelConsensus').textContent = `${primary} (${confPercent}% confidence)`;
+      resultsSection.classList.add('show'); feedbackStatus.classList.remove('show'); feedbackCorrectState=null; document.querySelectorAll('.btn-feedback').forEach(b=>b.classList.remove('active'));
+
+      // add to history
+      try{
+        const entry={ts:Date.now(),title:res.title,kind:primary,icon:res.icon,priority:res.priority,confidence:confPercent,severity:(ensemble.severity||data.severity||'').toString(),audioSrc:audioElement.src||'',details:data,correctionStatus:null};
+        addHistoryEntry(entry);
+      }catch(e){console.warn('History add failed',e)}
+    }
+
+    function clearResults(){ currentPrediction=null; feedbackCorrectState=null; document.querySelectorAll('.btn-feedback').forEach(b=>b.classList.remove('active')); feedbackStatus.classList.remove('show'); }
+    function toggleDetails(){ document.getElementById('detailsContent').classList.toggle('show'); document.getElementById('detailsIcon').classList.toggle('open'); }
+
+    btnCorrect.addEventListener('click', ()=>{ 
+      feedbackCorrectState=true; 
+      btnCorrect.classList.add('active'); 
+      btnIncorrect.classList.remove('active'); 
+      feedbackStatus.textContent='✓ Thanks for your feedback!'; 
+      feedbackStatus.className='feedback-status show success'; 
+      if(currentPrediction) updateHistoryCorrectionStatus(currentPrediction, 'correct');
+      setTimeout(()=>feedbackStatus.classList.remove('show'),3000); 
+    });
+    
+    btnIncorrect.addEventListener('click', ()=>{ 
+      feedbackCorrectState=false; 
+      btnIncorrect.classList.add('active'); 
+      btnCorrect.classList.remove('active'); 
+      feedbackStatus.textContent='✓ Thanks for your feedback!'; 
+      feedbackStatus.className='feedback-status show success'; 
+      if(currentPrediction) updateHistoryCorrectionStatus(currentPrediction, 'incorrect');
+      setTimeout(()=>feedbackStatus.classList.remove('show'),3000); 
+    });
+
+    function updateHistoryCorrectionStatus(prediction, status) {
+      const history = loadHistory();
+      if (history.length > 0) {
+        history[0].correctionStatus = status;
+        saveHistory(history);
+        renderHistory(history);
+      }
+    }
+
+    function showStatus(msg,type){ statusContainer.innerHTML = `<div class="status ${type}">${msg}</div>`; }
+
+    // History helpers
+    function loadHistory(){ try{const a=JSON.parse(localStorage.getItem(HISTORY_KEY)||'[]'); return Array.isArray(a)?a:[];}catch{return []} }
+    function saveHistory(a){ localStorage.setItem(HISTORY_KEY, JSON.stringify(a.slice(0,100))); }
+    function addHistoryEntry(e){ const a=loadHistory(); a.unshift(e); saveHistory(a); renderHistory(a); }
+    function renderHistory(a){ const list=document.getElementById('historyList'); list.innerHTML=''; if(!a||a.length===0){ list.innerHTML='<div style="color:#666">No alerts yet. Upload an audio file to get started.</div>'; return;} a.forEach((e,i)=>{ const item=document.createElement('div'); item.className='history-item'; const when=new Date(e.ts).toLocaleString(); const tagType=e.priority==='Critical'?'emergency':(e.priority==='Caution'||e.priority==='Warning'?'safety':'info'); item.innerHTML=`<div class="history-left"><div style="font-size:1.2rem">${e.icon||'🔔'}</div><div><div style="font-weight:700">${e.title||'Alert'}</div><div style=\"font-size:12px;color:#555\">${when} • <span class=\"pill\">${e.confidence||0}%</span> • <span class=\"tag ${tagType}\">${e.priority||'--'}</span></div></div></div><div><button class=\"view-btn\" data-i=\"${i}\">View Details</button></div>`; const details=document.createElement('div'); details.className='details'; details.textContent=JSON.stringify(e.details,null,2); item.appendChild(details); item.querySelector('.view-btn').addEventListener('click',()=>{ details.style.display=details.style.display==='block'?'none':'block'; }); list.appendChild(item); }); }
+    function renderHistory(a){ 
+      const list=document.getElementById('historyList'); 
+      list.innerHTML=''; 
+      if(!a||a.length===0){ 
+        list.innerHTML='<div style="color:#666">No alerts yet. Upload an audio file to get started.</div>'; 
+        return;
+      } 
+      
+      a.forEach((e,i)=>{ 
+        const item=document.createElement('div'); 
+        item.className='history-item'; 
+        const when=new Date(e.ts).toLocaleString(); 
+        const tagType=e.priority==='Critical'?'emergency':(e.priority==='Caution'||e.priority==='Warning'?'safety':'info');
+        
+        // Simplified alert type display
+        const alertTypeMap = {
+          'alert_sounds': 'Alert',
+          'collision_sounds': 'Collision/Impact',
+          'emergency_sirens': 'Emergency Siren',
+          'environmental_sounds': 'Environmental',
+          'human_scream': 'Human Scream',
+          'road_traffic': 'Road Traffic'
+        };
+        const simplifiedType = alertTypeMap[e.kind] || e.kind || 'Unknown';
+        
+        // Correction status badge
+        let correctionBadge = '';
+        if (e.correctionStatus === 'correct') {
+          correctionBadge = '<span style="background:#c8e6c9;color:#2e7d32;padding:2px 6px;border-radius:4px;font-size:11px;margin-left:4px">✓ Correct</span>';
+        } else if (e.correctionStatus === 'incorrect') {
+          correctionBadge = '<span style="background:#ffcdd2;color:#c62828;padding:2px 6px;border-radius:4px;font-size:11px;margin-left:4px">✗ Incorrect</span>';
+        }
+        
+        item.innerHTML=`<div class="history-left"><div style="font-size:1.2rem">${e.icon||'🔔'}</div><div><div style="font-weight:700">${simplifiedType}${correctionBadge}</div><div style=\"font-size:12px;color:#555\">${when} • <span class=\"pill\">${e.confidence||0}%</span> • <span class=\"tag ${tagType}\">${e.priority||'--'}</span></div></div></div><div><button class=\"view-btn\" data-i=\"${i}\">View Details</button></div>`; 
+        
+        const details=document.createElement('div'); 
+        details.className='details'; 
+        const finalPred=(e.details && e.details.ensemble && e.details.ensemble.primary_class)||e.kind||'Unknown'; 
+        const finalConf=(e.details && e.details.ensemble && Math.round((e.details.ensemble.confidence||0)*100))||e.confidence||0; 
+        details.innerHTML = `<div style=\"margin-bottom:6px;font-weight:700\">Final Prediction: ${finalPred} (${finalConf}% confidence)<\/div>` + (e.audioSrc?`<audio controls src=\"${e.audioSrc}\" style=\"width:100%;margin-bottom:8px\"></audio>`:'') + `<pre style=\"white-space:pre-wrap;word-break:break-word;margin:0\">${JSON.stringify(e.details,null,2)}<\/pre>`; 
+        item.appendChild(details); 
+        item.querySelector('.view-btn').addEventListener('click',()=>{ 
+          details.style.display=details.style.display==='block'?'none':'block'; 
+        }); 
+        list.appendChild(item); 
+      }); 
+    }
+    document.addEventListener('DOMContentLoaded',()=>{ renderHistory(loadHistory()); const clr=document.getElementById('clearHistoryBtn'); if(clr){ clr.addEventListener('click',()=>{ saveHistory([]); renderHistory([]); }); }});
+  </script>
+</body>
+</html>

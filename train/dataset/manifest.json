@@ -1,0 +1,43 @@
+{
+  "classes": [
+    "alert_sounds",
+    "car_crash",
+    "emergency_sirens",
+    "environmental_sounds",
+    "glass_breaking",
+    "human_scream",
+    "road_traffic"
+  ],
+  "root_dir": "c:\\Users\\Saim\\cmpe-281-models\\cmpe-281-models\\train\\dataset",
+  "splits": {
+    "train": {
+      "alert_sounds": 791,
+      "car_crash": 1080,
+      "emergency_sirens": 815,
+      "environmental_sounds": 1026,
+      "glass_breaking": 1050,
+      "human_scream": 982,
+      "road_traffic": 1008
+    },
+    "val": {
+      "alert_sounds": 169,
+      "car_crash": 13,
+      "emergency_sirens": 174,
+      "environmental_sounds": 24,
+      "glass_breaking": 15,
+      "human_scream": 210,
+      "road_traffic": 18
+    },
+    "test": {
+      "alert_sounds": 170,
+      "car_crash": 14,
+      "emergency_sirens": 176,
+      "environmental_sounds": 26,
+      "glass_breaking": 15,
+      "human_scream": 212,
+      "road_traffic": 19
+    }
+  },
+  "sample_rate": 16000,
+  "duration": 3.0
+}

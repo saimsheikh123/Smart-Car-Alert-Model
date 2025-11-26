@@ -1,0 +1,2390 @@
+{
+  "alert_sounds": {
+    "total_sampled": 30,
+    "correct": 28,
+    "accuracy": 0.933,
+    "collision_misclassified_as_road_traffic": null,
+    "samples": [
+      {
+        "file": "C_1_A_N2.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_8_A_N1.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_4_S_N2.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_7_B_N7.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_10_S_N5.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 0.9994,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_9_S_N5.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "_J_4_A_L.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "_C_8_S_L.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_8_B_N3.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_3_A_S_.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_3_B_N3.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 0.9998,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_8_A_N4.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_3_S_N1.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_4_A_V_.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-50666-A-20.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "human_scream",
+        "confidence": 0.9923,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": false
+      },
+      {
+        "file": "C_10_B_N3.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_3_S_N9.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "_J_4_A_V.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_7_A_N9.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_10_A_N9.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_3_S_L_.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_9_S_V_.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 0.9989,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_3_S_V_.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_5_S_L_.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "J_2_B_N7.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-37806-C-40.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "emergency_sirens",
+        "confidence": 0.9972,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": false
+      },
+      {
+        "file": "C_1_A_L_.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_5_A_N8.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "_C_6_S_L.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      },
+      {
+        "file": "C_5_B_N6.wav",
+        "true": "alert_sounds",
+        "mapped_true": "alert_sounds",
+        "pred": "alert_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": true
+      }
+    ]
+  },
+  "collision_sounds": {
+    "total_sampled": 30,
+    "correct": 30,
+    "accuracy": 1.0,
+    "collision_misclassified_as_road_traffic": 0,
+    "samples": [
+      {
+        "file": "glass-break-5978_aug7.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "crashing-6429_aug8.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "smashing-glass-6166_aug9.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9998,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "glass-breaking-93803_aug10.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "glass-on-glass-78084_aug5.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9997,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "smashing-glass-6166_aug3.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9996,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "4-12_aug4.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "glass-dishes-73559_aug4.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9983,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "breaking-glass-with-feet-45176_aug5.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9995,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "glass-bottle-shatter-13847.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "window-smash-sfx-382708_aug3.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "glass-breaking-171617_aug7.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "standing-on-broken-glass-67303_aug12.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9994,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "smashing-glass-6166_aug13.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9998,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "19-4_aug14.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "crashing-6429_aug4.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "breaking-glass-with-feet-45176_aug8.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "5-14.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "glass-shatter-1-46837_aug8.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9996,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "crashing-6429_aug2.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-12.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9965,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "window-smash-sfx-382708.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "breaking-glass-with-feet-45176_aug9.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9998,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "glass-breaking-93803_aug11.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "glass-breaking-171617_aug14.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "breaking-glass-2-86555.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "glass-cup-falls-and-breaks-163309_aug14.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-21_aug9.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-10_aug16.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "6-7_aug11.wav",
+        "true": "collision_sounds",
+        "mapped_true": "collision_sounds",
+        "pred": "collision_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      }
+    ]
+  },
+  "emergency_sirens": {
+    "total_sampled": 30,
+    "correct": 27,
+    "accuracy": 0.9,
+    "collision_misclassified_as_road_traffic": null,
+    "samples": [
+      {
+        "file": "ambulance14.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-106487-A-44.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": false
+      },
+      {
+        "file": "ambulance612.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 0.9998,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance898.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance716.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance835.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance805.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance609.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance457.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance152.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance559.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-52001-B-28.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 0.9965,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance600.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 0.9336,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance599.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance742.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 0.9994,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-70938-A-42.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance392.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 0.9997,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance247.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance212.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance573.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance345.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-52085-A-4.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "alert_sounds",
+        "confidence": 0.9411,
+        "severity": {
+          "level_num": 3,
+          "level": "warning",
+          "justification": "Attention recommended"
+        },
+        "correct": false
+      },
+      {
+        "file": "ambulance870.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance388.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "2-83688-A-34.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "collision_sounds",
+        "confidence": 0.9343,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": false
+      },
+      {
+        "file": "ambulance635.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance912.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance698.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance923.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "ambulance523.wav",
+        "true": "emergency_sirens",
+        "mapped_true": "emergency_sirens",
+        "pred": "emergency_sirens",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      }
+    ]
+  },
+  "environmental_sounds": {
+    "total_sampled": 30,
+    "correct": 30,
+    "accuracy": 1.0,
+    "collision_misclassified_as_road_traffic": null,
+    "samples": [
+      {
+        "file": "Rain (24)_aug3_aug3.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (44)_aug1_aug1.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (22)_aug4.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9995,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (13)_aug0_aug3.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9955,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (1)_aug2_aug7.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9998,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (41)_aug4_aug7.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (22)_aug3_aug1.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9989,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (27)_aug3_aug3.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (39)_aug3.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (46)_aug1.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (34)_aug4_aug1.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9996,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (1)_aug4.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9997,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (13)_aug4.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9988,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (44)_aug2.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9998,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (82)_aug1.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (32)_aug3_aug2.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (24)_aug3_aug7.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9998,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (13)_aug3_aug3.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9992,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (82)_aug1_aug8.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (63)_aug1.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (41)_aug4.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (100)_aug4.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (14)_aug1.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9996,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (11)_aug1.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9995,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (41).wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (44)_aug1_aug3.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (20)_aug2.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9972,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (33)_aug2_aug8.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9995,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (11)_aug1_aug1.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9997,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "Rain (44)_aug3.wav",
+        "true": "environmental_sounds",
+        "mapped_true": "environmental_sounds",
+        "pred": "environmental_sounds",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      }
+    ]
+  },
+  "human_scream": {
+    "total_sampled": 30,
+    "correct": 29,
+    "accuracy": 0.967,
+    "collision_misclassified_as_road_traffic": null,
+    "samples": [
+      {
+        "file": "261419__archeos__womanscream_aug0.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "135758__skytheguy__victim.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "eaaaaah-321241_aug1_aug1.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "222545__queen-westeros__woman-scream_aug0.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "distant-demonic-scream-and-debris-346596_aug1_aug1.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "loud-female-scream-41894_aug2_aug2.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "yet-another-scream-again-82679_aug4_aug4.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 0.9997,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "84351__patopurific__scream-and-death-1_aug2.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "3R4N_15_4_0_23_0_0_0.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "man-scream-02-123080_aug2_aug2.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "AR80_15_13_0_18_0_0_0_aug1.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "PPH8_15_9_0_25_0_0_0_aug3.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "18-5_aug2.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "18-1_aug4.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "033205_human-male-scream-small-crowd-panic-fearmp3-76274_aug3_aug3.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "220623__adriancalzon__scream-05_aug2.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "IFJ0_15_10_0_30_0_0_0_aug2.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "QZXV_15_10_1_23_0_0_0_aug1.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "220307__ellenskellington__oneshout_aug0.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "female-scream-short-251067.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "SDIP_15_6_0_22_0_0_0_aug1.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "scream-with-echo-46585_aug1_aug1.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "77AY_15_7_0_30_0_0_0_aug1.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "sound-effect-woman-scream-and-glass-breaking-236490.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "collision_sounds",
+        "confidence": 0.9997,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": false
+      },
+      {
+        "file": "219817__saraonsins__horror-scream_aug2.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "PPH8_15_9_0_25_0_0_0_aug2.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "5QDM_15_12_0_23_0_0_0_aug1.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "I850_15_7_1_35_0_0_0_aug1.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "frantic-screaming-213549_aug3_aug3.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      },
+      {
+        "file": "125127__thanvannispen__schreeuw1clean_aug2.wav",
+        "true": "human_scream",
+        "mapped_true": "human_scream",
+        "pred": "human_scream",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 5,
+          "level": "severe",
+          "justification": "High-confidence critical event"
+        },
+        "correct": true
+      }
+    ]
+  },
+  "road_traffic": {
+    "total_sampled": 30,
+    "correct": 30,
+    "accuracy": 1.0,
+    "collision_misclassified_as_road_traffic": null,
+    "samples": [
+      {
+        "file": "road (93).wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 0.9995,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (87)_aug5.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (24)_aug8.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (24)_aug1.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (17)_aug3.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (75)_aug8.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (33)_aug1.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (11)_aug10.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (62)_aug6.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (98)_aug11.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (103)_aug9.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (78)_aug8.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (6)_aug9.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (82)_aug9.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (85).wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (20)_aug4.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 0.9999,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (98)_aug7.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (20)_aug2.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (82)_aug3.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (29)_aug10.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (99).wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (12)_aug2.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (14)_aug5.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (47).wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (88).wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (116)_aug3.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (26)_aug11.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (59)_aug11.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (39)_aug2.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      },
+      {
+        "file": "road (21)_aug8.wav",
+        "true": "road_traffic",
+        "mapped_true": "road_traffic",
+        "pred": "road_traffic",
+        "confidence": 1.0,
+        "severity": {
+          "level_num": 2,
+          "level": "info",
+          "justification": "Ambient/non-actionable"
+        },
+        "correct": true
+      }
+    ]
+  }
+}
