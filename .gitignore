@@ -41,10 +41,18 @@ aws_config.json
 checkpoint-*/
 
 # Datasets (too large for GitHub)
-datasets/
-*.wav
-*.mp3
-*.flac
+# Raw datasets excluded, but train/dataset/* is tracked with Git LFS
+datasets/Alert_sounds/
+datasets/car_crash_dataset/
+datasets/Emergency_sirens/
+datasets/Environmental_Sounds/
+datasets/ESC-50/
+datasets/glass_breaking_dataset/
+datasets/Human_Scream/
+datasets/road_traffic_dataset/
+
+# Audio files tracked via Git LFS (configured in .gitattributes)
+# *.wav, *.mp3, *.flac are now allowed for train/dataset/
 
 # Training outputs
 training_log.txt
