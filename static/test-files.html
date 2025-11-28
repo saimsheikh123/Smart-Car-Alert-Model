@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Car Alert - Test Files</title>
+  <style>
+    :root {
+      --bg: #0a0f19;
+      --panel: #111827;
+      --panel-2: #0b1220;
+      --border: #1f2937;
+      --muted: #94a3b8;
+      --text: #e5e7eb;
+      --primary: #4f46e5;
+      --cyan: #06b6d4;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), var(--cyan)); box-shadow: 0 10px 24px rgba(79,70,229,0.35); }
+    h1 { font-size: 22px; margin: 0; }
+    .sub { color: var(--muted); font-size: 13px; }
+    .status { display: flex; gap: 8px; align-items: center; }
+    .badge { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: #0f172a; color: var(--muted); border: 1px solid var(--border); }
+    .link-btn { text-decoration: none; }
+    .button { background: #1f2937; color: var(--text); border: 1px solid #374151; border-radius: 8px; padding: 8px 12px; font-size: 14px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; }
+    .button:hover { background: #374151; }
+    .button.primary { background: linear-gradient(135deg, var(--primary), var(--cyan)); border: none; color: #fff; }
+
+    .file-list { display: grid; gap: 12px; }
+    .file-item { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center; }
+    .file-meta { display: flex; flex-direction: column; gap: 4px; }
+    .file-name { font-weight: 600; color: var(--text); }
+    .file-path { font-size: 12px; color: var(--muted); }
+    .actions { display: flex; gap: 8px; align-items: center; }
+    audio { height: 32px; }
+    
+    .loading { text-align: center; padding: 40px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>Test Files Browser</h1>
+          <div class="sub">Select a file to classify</div>
+        </div>
+      </div>
+      <div class="status">
+        <a class="button link-btn" href="/">Local Mode</a>
+        <a class="button link-btn" href="/static/sagemaker.html">Cloud Mode</a>
+      </div>
+    </header>
+
+    <div id="content">
+      <div class="loading">Loading test files...</div>
+    </div>
+  </div>
+
+  <script>
+    const content = document.getElementById('content');
+
+    async function loadFiles() {
+      try {
+        const res = await fetch('/test-files');
+        const data = await res.json();
+        
+        if (!data.files || data.files.length === 0) {
+          content.innerHTML = '<div class="loading">No test files found in dataset directory.</div>';
+          return;
+        }
+
+        content.innerHTML = '<div class="file-list"></div>';
+        const list = content.querySelector('.file-list');
+
+        data.files.forEach(f => {
+          const item = document.createElement('div');
+          item.className = 'file-item';
+          
+          const url = `/test-file/${encodeURIComponent(f.class)}/${encodeURIComponent(f.name)}`;
+          
+          item.innerHTML = `
+            <div class="file-meta">
+              <div class="file-name">${f.name}</div>
+              <div class="file-path">${f.class} • ${(f.size/1024).toFixed(1)} KB</div>
+            </div>
+            <div class="actions">
+              <audio controls src="${url}"></audio>
+              <a href="${url}" download class="button">Download</a>
+            </div>
+          `;
+          list.appendChild(item);
+        });
+      } catch (e) {
+        content.innerHTML = `<div class="loading" style="color: var(--red)">Error loading files: ${e.message}</div>`;
+      }
+    }
+
+    loadFiles();
+  </script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Car Alert - Audio Classifier</title>
+  <style>
+    :root {
+      --bg: #0a0f19;
+      --panel: #111827;
+      --panel-2: #0b1220;
+      --border: #1f2937;
+      --muted: #94a3b8;
+      --text: #e5e7eb;
+      --primary: #4f46e5;
+      --cyan: #06b6d4;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -20%, rgba(79,70,229,0.18), transparent 60%),
+        radial-gradient(1000px 500px at 110% -10%, rgba(6,182,212,0.12), transparent 60%),
+        var(--bg);
+      color: var(--text);
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), var(--cyan)); box-shadow: 0 10px 24px rgba(79,70,229,0.35); }
+    h1 { font-size: 22px; margin: 0; }
+    .sub { color: var(--muted); font-size: 13px; }
+    .status { display: flex; gap: 8px; align-items: center; }
+    .badge { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: #0f172a; color: var(--muted); border: 1px solid var(--border); }
+    .badge.ok { color: #d1fae5; border-color: #14532d; background: #0b1b13; }
+    .badge.model { color: #c7d2fe; border-color: #1e1b4b; background: #0b0f1f; }
+    .badge.local { color: #a5f3fc; border-color: #0e7490; background: #082f3a; }
+    .link-btn { text-decoration: none; }
+    .file-info { margin-top: 10px; font-size: 12px; color: var(--muted); text-align: center; }
+    .status-text { margin-top: 10px; font-size: 13px; text-align: center; }
+
+    .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
+    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); overflow: hidden; }
+    .panel-header { padding: 14px 16px; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent); display: flex; align-items: center; justify-content: space-between; }
+    .panel-title { font-size: 14px; color: var(--muted); }
+    .panel-body { padding: 16px; }
+
+    .uploader { border: 1px dashed #334155; border-radius: 12px; padding: 28px; text-align: center; background: var(--panel-2); cursor: pointer; transition: all 0.2s; }
+    .uploader:hover { border-color: var(--primary); }
+    .uploader input { display: none; }
+    .uploader .hint { color: var(--muted); font-size: 13px; }
+    .btns { display: flex; gap: 8px; justify-content: center; margin-top: 12px; }
+    button, .button { background: #1f2937; color: var(--text); border: 1px solid #374151; border-radius: 8px; padding: 10px 14px; font-size: 14px; cursor: pointer; transition: all 0.2s; }
+    button:hover, .button:hover { background: #374151; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    button.primary, .button.primary { background: linear-gradient(135deg, var(--primary), var(--cyan)); border: none; box-shadow: 0 8px 24px rgba(79,70,229,0.35); }
+    button.primary:hover { box-shadow: 0 12px 32px rgba(79,70,229,0.45); }
+
+    .result-card { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .result-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .class-name { font-weight: 600; }
+    .bar { height: 12px; border-radius: 999px; background: #0b1220; border: 1px solid #1f2937; overflow: hidden; width: 55%; }
+    .bar>span { display: block; height: 100%; background: linear-gradient(90deg, var(--primary), var(--cyan)); transition: width 0.3s; }
+    .score { width: 80px; text-align: right; color: var(--muted); }
+
+    .footer { margin-top: 16px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 12px; }
+    .footer .links { display: flex; gap: 12px; }
+    a { color: #93c5fd; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* History */
+    .history-list { display: grid; gap: 10px; }
+    .history-item { background: #0b1220; border: 1px solid var(--border); border-radius: 10px; padding: 10px; display: grid; grid-template-columns: 1fr auto; align-items: center; }
+    .history-meta { color: var(--muted); font-size: 12px; }
+    .judge { display: flex; gap: 8px; }
+    .btn-yes { background: #0b1b13; color: #86efac; border: 1px solid #14532d; }
+    .btn-no { background: #2b0b0b; color: #fecaca; border: 1px solid #7f1d1d; }
+
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>Smart Car Alert</h1>
+          <div class="sub">Audio Classification • Local AST-6class</div>
+        </div>
+      </div>
+      <div class="status">
+        <div id="apiBadge" class="badge">API: Checking…</div>
+        <div class="badge model">Model: AST-6class</div>
+        <div class="badge local">Mode: Local</div>
+        <a class="button link-btn" href="/static/test-files.html" title="Browse test files">Test Files</a>
+        <a class="button link-btn" href="/static/sagemaker.html" title="Switch to SageMaker Cloud">Cloud Mode</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Upload an audio file</div>
+          <div class="links"><a href="/docs" target="_blank">API Docs</a></div>
+        </div>
+        <div class="panel-body">
+          <div style="margin-bottom: 12px;">
+            <button id="testFilesBtn" class="button" style="width: 100%;">📂 Browse Test Files</button>
+          </div>
+          <div id="testFilesList" style="display: none; max-height: 200px; overflow-y: auto; background: #0b1220; border: 1px solid var(--border); border-radius: 8px; padding: 8px; margin-bottom: 12px;">
+            <div style="color: var(--muted); font-size: 12px; margin-bottom: 8px;">Loading test files...</div>
+          </div>
+          <div class="uploader" id="dropZone">
+            <input id="fileInput" type="file" accept="audio/*" />
+            <div>
+              <div style="font-weight:600; margin-bottom:6px;">Drag & drop or choose a file</div>
+              <div class="hint">Supported: WAV, MP3, FLAC • Max ~10MB recommended</div>
+              <div class="btns">
+                <label for="fileInput" class="button">Choose File</label>
+                <button class="primary" id="classifyBtn" disabled>Classify</button>
+              </div>
+            </div>
+          </div>
+          <div id="fileInfo" class="file-info">No file selected</div>
+          <div id="statusText" class="status-text"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Result</div>
+          <div id="predMeta" class="hint"></div>
+        </div>
+        <div class="panel-body">
+          <div id="result" class="result-card"></div>
+        </div>
+      </section>
+      
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">History</div>
+          <div class="hint">Track predictions and your judgement</div>
+        </div>
+        <div class="panel-body">
+          <div id="history" class="history-list"></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      <div>© Smart Car Alert • Local Demo</div>
+      <div class="links">
+        <a href="#" id="reload">Reload</a>
+        <a href="https://github.com/saimsheikh123/Smart-Car-Alert-Model" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const apiBadge = document.getElementById('apiBadge');
+    const fileInput = document.getElementById('fileInput');
+    const classifyBtn = document.getElementById('classifyBtn');
+    const result = document.getElementById('result');
+    const predMeta = document.getElementById('predMeta');
+    const dropZone = document.getElementById('dropZone');
+    const reload = document.getElementById('reload');
+    const historyEl = document.getElementById('history');
+    const history = [];
+    const fileInfo = document.getElementById('fileInfo');
+    const statusText = document.getElementById('statusText');
+    let selectedFile = null;
+    const testFilesBtn = document.getElementById('testFilesBtn');
+    const testFilesList = document.getElementById('testFilesList');
+
+    reload.addEventListener('click', (e) => { e.preventDefault(); location.reload(); });
+
+    async function checkHealth() {
+      try {
+        const res = await fetch('/health');
+        const data = await res.json();
+        apiBadge.textContent = 'API: Healthy';
+        apiBadge.classList.add('ok');
+        apiBadge.title = `Model: ${data.model} | Mode: ${data.deployment}`;
+        window.AST_CLASSES = data.classes || [];
+      } catch {
+        apiBadge.textContent = 'API: Offline';
+        apiBadge.classList.remove('ok');
+      }
+    }
+    checkHealth();
+
+    ['dragenter','dragover','dragleave','drop'].forEach(evt => {
+      dropZone.addEventListener(evt, e => { e.preventDefault(); e.stopPropagation(); });
+    });
+    ['dragenter','dragover'].forEach(evt => {
+      dropZone.addEventListener(evt, () => dropZone.style.borderColor = '#60a5fa');
+    });
+    ['dragleave','drop'].forEach(evt => {
+      dropZone.addEventListener(evt, () => dropZone.style.borderColor = '#334155');
+    });
+    dropZone.addEventListener('drop', e => {
+      const files = e.dataTransfer.files;
+      if (files && files[0]) {
+        fileInput.files = files;
+        handleFileSelection(files[0]);
+      }
+    });
+
+    fileInput.addEventListener('change', e => {
+      const f = e.target.files && e.target.files[0];
+      handleFileSelection(f);
+    });
+
+    function handleFileSelection(file) {
+      selectedFile = file;
+      if (!file) {
+        fileInfo.textContent = 'No file selected';
+        classifyBtn.disabled = true;
+        return;
+      }
+      const sizeKb = (file.size / 1024).toFixed(1);
+      fileInfo.textContent = `Selected: ${file.name} • ${sizeKb} KB • ${file.type || 'unknown type'}`;
+      classifyBtn.disabled = false;
+    }
+
+    function setStatus(message, tone = 'info') {
+      statusText.textContent = message;
+      if (tone === 'error') {
+        statusText.style.color = '#fca5a5';
+      } else if (tone === 'success') {
+        statusText.style.color = '#86efac';
+      } else {
+        statusText.style.color = 'var(--muted)';
+      }
+    }
+
+    classifyBtn.addEventListener('click', async () => {
+      const f = selectedFile || (fileInput.files && fileInput.files[0]);
+      if (!f) { setStatus('Please select an audio file first.', 'error'); return; }
+      classifyBtn.disabled = true; classifyBtn.textContent = 'Classifying…'; result.innerHTML = '';
+      setStatus('Uploading audio for classification…');
+      try {
+        const form = new FormData();
+        form.append('file', f);
+        const res = await fetch('/classify', { method: 'POST', body: form });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Classification failed');
+
+        const probs = data.probabilities || {};
+        const entries = Object.entries(probs).sort((a,b) => b[1]-a[1]);
+        predMeta.textContent = `${data.filename || 'file'} • ${data.model || 'AST'} • size ${data.file_size_bytes || 0} bytes`;
+
+        entries.forEach(([cls, score]) => {
+          const row = document.createElement('div'); row.className = 'result-row';
+          const name = document.createElement('div'); name.className = 'class-name'; name.textContent = cls;
+          const bar = document.createElement('div'); bar.className = 'bar';
+          const span = document.createElement('span'); span.style.width = `${(score*100).toFixed(1)}%`;
+          bar.appendChild(span);
+          const pct = document.createElement('div'); pct.className = 'score'; pct.textContent = `${(score*100).toFixed(1)}%`;
+          row.appendChild(name); row.appendChild(bar); row.appendChild(pct);
+          result.appendChild(row);
+        });
+
+        const top = entries[0];
+        apiBadge.title = `Top: ${top[0]} ${(top[1]*100).toFixed(1)}%`;
+        setStatus('Classification complete.', 'success');
+
+        // Append to history
+        addHistoryEntry({
+          filename: data.filename || 'file',
+          predicted: top ? top[0] : 'unknown',
+          confidence: top ? (top[1]*100).toFixed(1) : '0.0'
+        });
+      } catch (err) {
+        setStatus(err.message || 'Classification failed', 'error');
+      } finally {
+        classifyBtn.disabled = false; classifyBtn.textContent = 'Classify';
+      }
+    });
+
+    // Test files browser for quick classification
+    if (testFilesBtn) {
+      testFilesBtn.addEventListener('click', async () => {
+        if (testFilesList.style.display === 'none') {
+          testFilesList.style.display = 'block';
+          testFilesList.innerHTML = '<div style="color: var(--muted); font-size: 12px; margin-bottom: 8px;">Loading test files...</div>';
+          try {
+            const res = await fetch('/test-files');
+            const data = await res.json();
+            if (!data.files || !data.files.length) {
+              testFilesList.innerHTML = '<div style="color: var(--muted); font-size: 12px;">No test files found.</div>';
+              return;
+            }
+            const list = document.createElement('div');
+            data.files.forEach(f => {
+              const row = document.createElement('div');
+              row.style.display = 'flex';
+              row.style.justifyContent = 'space-between';
+              row.style.alignItems = 'center';
+              row.style.padding = '6px 4px';
+              const name = document.createElement('div');
+              name.style.color = 'var(--muted)';
+              name.style.fontSize = '12px';
+              name.textContent = `${f.class} / ${f.name}`;
+              const act = document.createElement('div');
+              const clf = document.createElement('button');
+              clf.className = 'button';
+              clf.textContent = 'Classify';
+              clf.addEventListener('click', async () => {
+                const url = `/test-file/${encodeURIComponent(f.class)}/${encodeURIComponent(f.name)}`;
+                const r = await fetch(url);
+                const blob = await r.blob();
+                const form = new FormData();
+                form.append('file', new File([blob], f.name, { type: blob.type || 'audio/wav' }));
+                const resp = await fetch('/classify', { method: 'POST', body: form });
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.detail || 'Classification failed');
+                result.innerHTML = '';
+                const probs = data.probabilities || {};
+                const entries = Object.entries(probs).sort((a,b) => b[1]-a[1]);
+                predMeta.textContent = `${data.filename || 'file'} • ${data.model || 'AST'} • size ${data.file_size_bytes || 0} bytes`;
+                entries.forEach(([cls, score]) => {
+                  const row = document.createElement('div'); row.className = 'result-row';
+                  const name = document.createElement('div'); name.className = 'class-name'; name.textContent = cls;
+                  const bar = document.createElement('div'); bar.className = 'bar';
+                  const span = document.createElement('span'); span.style.width = `${(score*100).toFixed(1)}%`;
+                  bar.appendChild(span);
+                  const pct = document.createElement('div'); pct.className = 'score'; pct.textContent = `${(score*100).toFixed(1)}%`;
+                  row.appendChild(name); row.appendChild(bar); row.appendChild(pct);
+                  result.appendChild(row);
+                });
+                const top = entries[0];
+                apiBadge.title = `Top: ${top[0]} ${(top[1]*100).toFixed(1)}%`;
+                addHistoryEntry({ filename: f.name, predicted: top ? top[0] : 'unknown', confidence: top ? (top[1]*100).toFixed(1) : '0.0' });
+              });
+              act.appendChild(clf);
+              row.appendChild(name);
+              row.appendChild(act);
+              list.appendChild(row);
+            });
+            testFilesList.innerHTML = '';
+            testFilesList.appendChild(list);
+          } catch (e) {
+            testFilesList.innerHTML = `<div style="color: var(--red); font-size: 12px;">Error: ${e.message}</div>`;
+          }
+        } else {
+          testFilesList.style.display = 'none';
+        }
+      });
+    }
+    function addHistoryEntry(item) {
+      history.push({ ...item, judgement: null });
+      const row = document.createElement('div');
+      row.className = 'history-item';
+      const left = document.createElement('div');
+      left.innerHTML = `<div><strong>${item.filename}</strong></div>
+                        <div class="history-meta">Predicted: ${item.predicted} • ${item.confidence}%</div>`;
+      const right = document.createElement('div');
+      right.className = 'judge';
+      const yes = document.createElement('button');
+      yes.className = 'button btn-yes';
+      yes.textContent = 'Right';
+      const no = document.createElement('button');
+      no.className = 'button btn-no';
+      no.textContent = 'Wrong';
+      yes.addEventListener('click', () => {
+        row.style.borderColor = '#14532d';
+        row.style.boxShadow = '0 0 0 1px #14532d inset';
+        left.querySelector('.history-meta').textContent = `Predicted: ${item.predicted} • ${item.confidence}% • Judgement: Right`;
+      });
+      no.addEventListener('click', () => {
+        row.style.borderColor = '#7f1d1d';
+        row.style.boxShadow = '0 0 0 1px #7f1d1d inset';
+        left.querySelector('.history-meta').textContent = `Predicted: ${item.predicted} • ${item.confidence}% • Judgement: Wrong`;
+      });
+      right.appendChild(yes);
+      right.appendChild(no);
+      row.appendChild(left);
+      row.appendChild(right);
+      historyEl.prepend(row);
+    }
+  </script>
+</body>
+</html>

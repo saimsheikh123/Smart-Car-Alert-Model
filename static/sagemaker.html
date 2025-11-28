@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Car Alert - SageMaker Cloud</title>
+  <style>
+    :root {
+      --bg: #0a0f19;
+      --panel: #111827;
+      --panel-2: #0b1220;
+      --border: #1f2937;
+      --muted: #94a3b8;
+      --text: #e5e7eb;
+      --primary: #4f46e5;
+      --cyan: #06b6d4;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --orange: #f97316;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -20%, rgba(249,115,22,0.15), transparent 60%),
+        radial-gradient(1000px 500px at 110% -10%, rgba(234,88,12,0.12), transparent 60%),
+        var(--bg);
+      color: var(--text);
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--orange), var(--yellow)); box-shadow: 0 10px 24px rgba(249,115,22,0.35); }
+    h1 { font-size: 22px; margin: 0; }
+    .sub { color: var(--muted); font-size: 13px; }
+    .status { display: flex; gap: 8px; align-items: center; }
+    .badge { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: #0f172a; color: var(--muted); border: 1px solid var(--border); }
+    .badge.ok { color: #d1fae5; border-color: #14532d; background: #0b1b13; }
+    .badge.warn { color: #fef3c7; border-color: #78350f; background: #1c1917; }
+    .badge.model { color: #fed7aa; border-color: #7c2d12; background: #1c0f0a; }
+    .badge.cloud { color: #fed7aa; border-color: #c2410c; background: #1c0f0a; }
+    .link-btn { text-decoration: none; }
+    .file-info { margin-top: 10px; font-size: 12px; color: var(--muted); text-align: center; }
+
+    .status-text { margin-top: 10px; font-size: 13px; text-align: center; }
+
+    .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
+    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.35); overflow: hidden; }
+    .panel-header { padding: 14px 16px; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent); display: flex; align-items: center; justify-content: space-between; }
+    .panel-title { font-size: 14px; color: var(--muted); }
+    .panel-body { padding: 16px; }
+
+    .uploader { border: 1px dashed #334155; border-radius: 12px; padding: 28px; text-align: center; background: var(--panel-2); cursor: pointer; transition: all 0.2s; }
+    .uploader:hover { border-color: var(--orange); }
+    .uploader input { display: none; }
+    .uploader .hint { color: var(--muted); font-size: 13px; }
+    .btns { display: flex; gap: 8px; justify-content: center; margin-top: 12px; }
+    button, .button { background: #1f2937; color: var(--text); border: 1px solid #374151; border-radius: 8px; padding: 10px 14px; font-size: 14px; cursor: pointer; transition: all 0.2s; }
+    button:hover, .button:hover { background: #374151; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    button.primary, .button.primary { background: linear-gradient(135deg, var(--orange), var(--yellow)); border: none; box-shadow: 0 8px 24px rgba(249,115,22,0.35); color: #000; font-weight: 600; }
+    button.primary:hover { box-shadow: 0 12px 32px rgba(249,115,22,0.45); }
+
+    .result-card { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .result-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .class-name { font-weight: 600; }
+    .bar { height: 12px; border-radius: 999px; background: #0b1220; border: 1px solid #1f2937; overflow: hidden; width: 55%; }
+    .bar>span { display: block; height: 100%; background: linear-gradient(90deg, var(--orange), var(--yellow)); transition: width 0.3s; }
+    .score { width: 80px; text-align: right; color: var(--muted); }
+
+    .footer { margin-top: 16px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 12px; }
+    .footer .links { display: flex; gap: 12px; }
+    a { color: #fdba74; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* History */
+    .history-list { display: grid; gap: 10px; }
+    .history-item { background: #0b1220; border: 1px solid var(--border); border-radius: 10px; padding: 10px; display: grid; grid-template-columns: 1fr auto; align-items: center; }
+    .history-meta { color: var(--muted); font-size: 12px; }
+    .judge { display: flex; gap: 8px; }
+    .btn-yes { background: #0b1b13; color: #86efac; border: 1px solid #14532d; }
+    .btn-no { background: #2b0b0b; color: #fecaca; border: 1px solid #7f1d1d; }
+
+    .alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; border-left: 3px solid; }
+    .alert.info { background: #0a1628; border-color: var(--cyan); color: #7dd3fc; }
+    .alert.warning { background: #1c1917; border-color: var(--yellow); color: #fde68a; }
+
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>Smart Car Alert</h1>
+          <div class="sub">Audio Classification • AWS SageMaker</div>
+        </div>
+      </div>
+      <div class="status">
+        <a href="/docs" target="_blank" id="apiBadge" class="badge" style="text-decoration:none; cursor:pointer;">API: Checking…</a>
+        <div id="cloudBadge" class="badge cloud">AWS: Checking…</div>
+        <div class="badge model">Model: AST-6class</div>
+        <a class="button link-btn" href="/static/test-files.html" title="Browse test files">Test Files</a>
+        <a class="button link-btn" href="/" title="Switch to Local Mode">Local Mode</a>
+      </div>
+    </header>
+
+    <div class="alert info">
+      ☁️ This page uses the <strong>AWS SageMaker</strong> endpoint for inference. 
+      <a href="/" style="color: #93c5fd;">Switch to local mode</a>
+    </div>
+
+    <div class="grid">
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Upload an audio file</div>
+          <div class="links"><a href="/docs" target="_blank">API Docs</a></div>
+        </div>
+        <div class="panel-body">
+          <div class="uploader" id="dropZone">
+            <input id="fileInput" type="file" accept="audio/*" />
+            <div>
+              <div style="font-weight:600; margin-bottom:6px;">Drag & drop or choose a file</div>
+              <div class="hint">Supported: WAV, MP3, FLAC • Max ~10MB recommended</div>
+              <div class="btns">
+                <label for="fileInput" class="button">Choose File</label>
+                <button class="primary" id="classifyBtn" disabled>Classify</button>
+              </div>
+              <audio id="audioPlayer" controls style="width: 100%; margin-top: 16px; display: none; border-radius: 8px;"></audio>
+            </div>
+          </div>
+          <div id="fileInfo" class="file-info">No file selected</div>
+          <div id="statusText" class="status-text"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Result</div>
+          <div id="predMeta" class="hint"></div>
+        </div>
+        <div class="panel-body">
+          <div id="result" class="result-card"></div>
+        </div>
+      </section>
+      
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-title">History</div>
+          <div class="hint">Track predictions and your judgement</div>
+        </div>
+        <div class="panel-body">
+          <div id="history" class="history-list"></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      <div>© Smart Car Alert • SageMaker Cloud</div>
+      <div class="links">
+        <a href="#" id="reload">Reload</a>
+        <a href="/">Local Mode</a>
+        <a href="https://github.com/saimsheikh123/Smart-Car-Alert-Model" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const apiBadge = document.getElementById('apiBadge');
+    const cloudBadge = document.getElementById('cloudBadge');
+    const fileInput = document.getElementById('fileInput');
+    const classifyBtn = document.getElementById('classifyBtn');
+    const result = document.getElementById('result');
+    const predMeta = document.getElementById('predMeta');
+    const dropZone = document.getElementById('dropZone');
+    const reload = document.getElementById('reload');
+    const historyEl = document.getElementById('history');
+    const history = [];
+    const fileInfo = document.getElementById('fileInfo');
+    const statusText = document.getElementById('statusText');
+    let selectedFile = null;
+    let predictionPromise = null; // Store the active prediction
+
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    reload.addEventListener('click', (e) => { e.preventDefault(); location.reload(); });
+
+    async function checkHealth() {
+      try {
+        const res = await fetch('/health');
+        const data = await res.json();
+        apiBadge.textContent = 'API: Healthy';
+        apiBadge.classList.add('ok');
+        
+        if (data.cloud_status === 'InService') {
+          cloudBadge.textContent = `AWS: ${data.cloud_endpoint}`;
+          cloudBadge.classList.remove('warn');
+          cloudBadge.classList.add('ok');
+        } else {
+          cloudBadge.textContent = `AWS: ${data.cloud_status || 'Unknown'}`;
+          cloudBadge.classList.add('warn');
+        }
+        
+        window.AST_CLASSES = data.classes || [];
+      } catch {
+        apiBadge.textContent = 'API: Offline';
+        apiBadge.classList.remove('ok');
+        cloudBadge.textContent = 'AWS: Unknown';
+      }
+    }
+    checkHealth();
+
+    ['dragenter','dragover','dragleave','drop'].forEach(evt => {
+      dropZone.addEventListener(evt, e => { e.preventDefault(); e.stopPropagation(); });
+    });
+    ['dragenter','dragover'].forEach(evt => {
+      dropZone.addEventListener(evt, () => dropZone.style.borderColor = '#fb923c');
+    });
+    ['dragleave','drop'].forEach(evt => {
+      dropZone.addEventListener(evt, () => dropZone.style.borderColor = '#334155');
+    });
+    dropZone.addEventListener('drop', e => {
+      const files = e.dataTransfer.files;
+      if (files && files[0]) {
+        fileInput.files = files;
+        handleFileSelection(files[0]);
+      }
+    });
+
+    fileInput.addEventListener('change', e => {
+      const f = e.target.files && e.target.files[0];
+      handleFileSelection(f);
+    });
+
+    function handleFileSelection(file) {
+      selectedFile = file;
+      // Reset UI
+      result.innerHTML = '';
+      predMeta.textContent = '';
+      
+      if (!file) {
+        fileInfo.textContent = 'No file selected';
+        classifyBtn.disabled = true;
+        audioPlayer.style.display = 'none';
+        audioPlayer.src = '';
+        predictionPromise = null;
+        return;
+      }
+      
+      const sizeKb = (file.size / 1024).toFixed(1);
+      fileInfo.textContent = `Selected: ${file.name} • ${sizeKb} KB • ${file.type || 'unknown type'}`;
+      classifyBtn.disabled = false;
+      classifyBtn.textContent = 'Classify';
+      
+      // Setup audio player (NO AUTOPLAY)
+      const url = URL.createObjectURL(file);
+      audioPlayer.src = url;
+      audioPlayer.style.display = 'block';
+      
+      // Start API automatically
+      setStatus('File loaded. Analyzing in background...', 'info');
+      predictionPromise = performPrediction(file);
+    }
+
+    async function performPrediction(file) {
+      const form = new FormData();
+      form.append('file', file);
+      const res = await fetch('/classify-cloud', { method: 'POST', body: form });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || 'Classification failed');
+      return data;
+    }
+
+    function setStatus(message, tone = 'info') {
+      statusText.textContent = message;
+      if (tone === 'error') {
+        statusText.style.color = '#fca5a5';
+      } else if (tone === 'success') {
+        statusText.style.color = '#86efac';
+      } else {
+        statusText.style.color = 'var(--muted)';
+      }
+    }
+
+    classifyBtn.addEventListener('click', async () => {
+      if (!selectedFile || !predictionPromise) { 
+        setStatus('Please select an audio file first.', 'error'); 
+        return; 
+      }
+      
+      classifyBtn.disabled = true; 
+      classifyBtn.textContent = 'Classifying…'; 
+      
+      try {
+        // Await the already-running prediction
+        const data = await predictionPromise;
+        renderResult(data);
+        setStatus('Classification complete.', 'success');
+      } catch (err) {
+        setStatus(err.message || 'Classification failed', 'error');
+        result.innerHTML = `<div style="color: var(--red);">Error: ${err.message}</div>`;
+      } finally {
+        classifyBtn.disabled = false; 
+        classifyBtn.textContent = 'Classify';
+      }
+    });
+
+    function renderResult(data) {
+        const probs = data.probabilities || {};
+        const entries = Object.entries(probs).sort((a,b) => b[1]-a[1]);
+        const duration = data.duration_seconds ? `${data.duration_seconds.toFixed(2)}s` : 'unknown duration';
+        predMeta.textContent = `${data.filename || 'file'} • ${data.endpoint || 'SageMaker'} • ${data.region || 'us-west-1'} • ${duration}`;
+
+        // Hero Result
+        const top = entries[0];
+        if (top) {
+          const hero = document.createElement('div');
+          hero.style.textAlign = 'center';
+          hero.style.padding = '20px';
+          hero.style.marginBottom = '20px';
+          hero.style.background = 'linear-gradient(135deg, rgba(249,115,22,0.1), rgba(245,158,11,0.1))';
+          hero.style.borderRadius = '12px';
+          hero.style.border = '1px solid rgba(249,115,22,0.2)';
+          
+          const icon = document.createElement('div');
+          icon.style.fontSize = '48px';
+          icon.style.marginBottom = '10px';
+          const icons = {
+            'emergency_sirens': '🚨', 'car_horn': '📢', 'dog_bark': '🐕', 
+            'drilling': '🔨', 'gun_shot': '🔫', 'jackhammer': '🏗️', 
+            'siren': '🚨', 'street_music': '🎵', 'children_playing': '🛝', 'engine_idling': '🚗',
+            'air_conditioner': '❄️', 'alert_sounds': '⚠️', 'collision_sounds': '💥', 'human_scream': '😱', 'road_traffic': '🚦', 'environmental_sounds': '🌳'
+          };
+          icon.textContent = icons[top[0]] || '🔊';
+          
+          const label = document.createElement('div');
+          label.style.fontSize = '24px';
+          label.style.fontWeight = 'bold';
+          label.style.color = '#fff';
+          label.textContent = top[0].replace(/_/g, ' ').toUpperCase();
+          
+          const conf = document.createElement('div');
+          conf.style.fontSize = '16px';
+          conf.style.color = 'var(--orange)';
+          conf.style.marginTop = '4px';
+          conf.textContent = `${(top[1]*100).toFixed(1)}% Confidence`;
+          
+          hero.appendChild(icon);
+          hero.appendChild(label);
+          hero.appendChild(conf);
+          result.appendChild(hero);
+        }
+
+        entries.forEach(([cls, score]) => {
+          const row = document.createElement('div'); row.className = 'result-row';
+          const name = document.createElement('div'); name.className = 'class-name'; name.textContent = cls;
+          const bar = document.createElement('div'); bar.className = 'bar';
+          const span = document.createElement('span'); span.style.width = `${(score*100).toFixed(1)}%`;
+          bar.appendChild(span);
+          const pct = document.createElement('div'); pct.className = 'score'; pct.textContent = `${(score*100).toFixed(1)}%`;
+          row.appendChild(name); row.appendChild(bar); row.appendChild(pct);
+          result.appendChild(row);
+        });
+
+        if (top) {
+          cloudBadge.title = `Top: ${top[0]} ${(top[1]*100).toFixed(1)}%`;
+        }
+
+        addHistoryEntry({
+          filename: data.filename || 'file',
+          predicted: top ? top[0] : 'unknown',
+          confidence: top ? (top[1]*100).toFixed(1) : '0.0'
+        });
+    }
+
+    function addHistoryEntry(item) {
+      history.push({ ...item, judgement: null });
+      const row = document.createElement('div');
+      row.className = 'history-item';
+      const left = document.createElement('div');
+      left.innerHTML = `<div><strong>${item.filename}</strong></div>
+                        <div class="history-meta">Predicted: ${item.predicted} • ${item.confidence}%</div>`;
+      const right = document.createElement('div');
+      right.className = 'judge';
+      const yes = document.createElement('button');
+      yes.className = 'button btn-yes';
+      yes.textContent = 'Right';
+      const no = document.createElement('button');
+      no.className = 'button btn-no';
+      no.textContent = 'Wrong';
+      yes.addEventListener('click', () => {
+        row.style.borderColor = '#14532d';
+        row.style.boxShadow = '0 0 0 1px #14532d inset';
+        left.querySelector('.history-meta').textContent = `Predicted: ${item.predicted} • ${item.confidence}% • Judgement: Right`;
+      });
+      no.addEventListener('click', () => {
+        row.style.borderColor = '#7f1d1d';
+        row.style.boxShadow = '0 0 0 1px #7f1d1d inset';
+        left.querySelector('.history-meta').textContent = `Predicted: ${item.predicted} • ${item.confidence}% • Judgement: Wrong`;
+      });
+      right.appendChild(yes);
+      right.appendChild(no);
+      row.appendChild(left);
+      row.appendChild(right);
+      historyEl.prepend(row);
+    }
+  </script>
+</body>
+</html>
